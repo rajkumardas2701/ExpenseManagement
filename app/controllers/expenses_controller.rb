@@ -1,4 +1,5 @@
 class ExpensesController < ApplicationController
+	before_action :set_expense_item, only: [:edit, :update, :destroy, :show]
 
 	def new
 		@expenses = Expense.new
@@ -20,6 +21,19 @@ class ExpensesController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+    respond_to do |format|
+      if @expenses.update(expense_params)
+        format.html { redirect_to expenses_path, notice: 'Expense was successfully updated.' }        
+      else
+        format.html { render :edit }        
+      end
+    end
+  end
+
 	private
 
 	def expense_params
@@ -28,5 +42,9 @@ class ExpensesController < ApplicationController
 																		:createdAt,
 																		:User_id
 																		)
+	end
+
+	def set_expense_item
+		@expenses = Expense.find(params[:id])
 	end
 end
