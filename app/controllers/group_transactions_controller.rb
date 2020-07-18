@@ -1,2 +1,0 @@
-class GroupTransactionsController < ApplicationController
-end

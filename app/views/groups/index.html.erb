@@ -1,0 +1,6 @@
+<h2>All the Groups</h2>
+<% @groups.each do |group| %>
+	<span><%= group.name %></span>
+	<span><%= group.icon %></span>
+	<span><%= group.user.username %></span>
+<% end %>
