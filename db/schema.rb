@@ -10,24 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_115553) do
+ActiveRecord::Schema.define(version: 2020_07_18_031051) do
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.text "icon"
-    t.date "createdAt"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string "name"
+  create_table "expenses", force: :cascade do |t|
+    t.text "name"
     t.float "amount"
     t.date "createdAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "User_id", null: false
+    t.index ["User_id"], name: "index_expenses_on_User_id"
+  end
+
+  create_table "group_expenses", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "Group_id", null: false
+    t.integer "Expense_id", null: false
+    t.index ["Expense_id"], name: "index_group_expenses_on_Expense_id"
+    t.index ["Group_id"], name: "index_group_expenses_on_Group_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.text "icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,5 +47,8 @@ ActiveRecord::Schema.define(version: 2020_07_17_115553) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "transactions", "users"
+  add_foreign_key "expenses", "Users"
+  add_foreign_key "group_expenses", "Expenses"
+  add_foreign_key "group_expenses", "Groups"
+  add_foreign_key "groups", "users"
 end
