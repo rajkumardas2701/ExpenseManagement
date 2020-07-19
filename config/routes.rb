@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	root to: 'users#index'
 resources :expenses
 resources :groups
+resources :group_expenses, only: [:create, :destroy]
 
 get 'extExpenses', to: 'expenses#externalExpense'
 
