@@ -2,7 +2,4 @@
 
 <%= render @expenses %>
 
-
-<% @expenses.each do |expense| %>
-
-<% end %>
+<h4>Total Expenses: <%= number_to_currency(@sum) %></h4>

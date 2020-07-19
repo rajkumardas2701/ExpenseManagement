@@ -6,7 +6,8 @@ class ExpensesController < ApplicationController
 	end	
 
 	def index
-		@expenses = current_user.expenses
+		@expenses = current_user.expenses.by_recent_created
+		@sum = Expense.total_expenses(@expenses)
 	end
 
 	def create
