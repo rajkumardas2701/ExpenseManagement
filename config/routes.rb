@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 resources :expenses
 resources :groups
 
+get 'extExpenses', to: 'expenses#externalExpense'
+
 end

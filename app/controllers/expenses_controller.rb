@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
 	before_action :set_expense_item, only: [:edit, :update, :destroy, :show]
+	# before_action :set_groups, only: [:new, :edit]
 
 	def new
 		@expenses = Expense.new
@@ -8,7 +9,12 @@ class ExpensesController < ApplicationController
 	def index
 		@expenses = current_user.expenses.by_recent_created
 		@sum = Expense.total_expenses(@expenses)
-		@groupPics = Expense.get_pic(@expenses)
+		# @groupPics = Expense.get_pic(@expenses)
+	end
+
+	def externalExpense
+		@extexpenses = Expense.external(ids).by_user(current_user).by_recent_created
+		@sum = Expense.total_expenses(@extexpenses)
 	end
 
 	def create
@@ -72,5 +78,13 @@ class ExpensesController < ApplicationController
 		# else
 			@expenses = Expense.find(params[:id])
 		# end
+	end
+
+	# def set_groups
+	# 	@groups = current_user.groups
+	# end
+
+	def ids
+		ids = current_user.expenses.pluck(:id)
 	end
 end

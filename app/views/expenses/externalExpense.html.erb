@@ -1,0 +1,7 @@
+<h2>All the External expenses</h2>
+
+<h4>Total Ungrouped Expenses: <%= number_to_currency(@sum) %></h4>
+
+<%= render @extexpenses unless @extexpenses.nil? %>
+
+<%= link_to "Create new Expense", new_expense_path %>

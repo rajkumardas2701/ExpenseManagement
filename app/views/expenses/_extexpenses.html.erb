@@ -1,0 +1,10 @@
+
+  <p>
+  	Name: <%= extexpense.name %> |
+	Amount: <%= extexpense.amount %> |
+	Date: <%= extexpense.createdAt %>	
+  </p>
+  	<%= link_to 'show', expense_path(extexpense) %>
+  	<%= link_to 'Edit', edit_expense_path(extexpense) %> /
+  	<%= link_to 'Destroy', extexpense, method: :delete, data: { confirm: 'Are you sure?' } %>
+  

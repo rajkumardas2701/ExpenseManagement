@@ -7,13 +7,20 @@ class Expense < ApplicationRecord
 
 	scope :total_expenses, -> (expenses) { expenses.pluck(:amount).sum }
 	scope :by_recent_created, -> { order("createdAt desc") }
-	scope :get_pic, -> (expenses) { expenses.pluck(:icon) }
+	scope :by_user, -> (user) { where(User_id: user.id) }
+	scope :external, -> (ids) { where.not(id: GroupExpense.where(Expense_id: ids).pluck(:Expense_id)) }
 
-	def get_pic(expenses)
-		@pic = []
-		expenses.each do |expense|
-			@pics << expense.groups.pluck(:icon)
-		end
-		@pics
-	end
+
+# scope :get_pic, -> (expenses) { expenses.pluck(:icon) }
+
+	# def self.get_pic(expenses)
+	# 	pic = []
+	# 	expenses.each do |expense|
+	# 		if !expense.groups.nil?
+	# 			byebug
+	# 			pics += expense.groups.pluck(:icon)
+	# 		end
+	# 	end
+	# 	pics
+	# end
 end

@@ -1,7 +1,7 @@
 <h2>All the expenses</h2>
 
-<%= render @expenses %>
-
 <h4>Total Expenses: <%= number_to_currency(@sum) %></h4>
+
+<%= render @expenses %>
 
 <%= link_to "Create new Expense", new_expense_path %>
