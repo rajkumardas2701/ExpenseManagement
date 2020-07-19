@@ -1,0 +1,7 @@
+<h2><%= @expense.name %></h2>
+	<%= link_to 'Edit', edit_expense_path(@expense)%>
+
+	<p>
+  	Amount: <%= @expense.amount %> |
+	Date: <%= @expense.createdAt %>		
+	</p>

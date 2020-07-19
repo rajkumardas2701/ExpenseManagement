@@ -24,6 +24,10 @@ class ExpensesController < ApplicationController
 	def edit
 	end
 
+	def show
+		@expense = Expense.find(params[:id])
+	end
+
 	def update
     respond_to do |format|
       if @expenses.update(expense_params)
@@ -31,6 +35,15 @@ class ExpensesController < ApplicationController
       else
         format.html { render :edit }        
       end
+    end
+  end
+
+  def destroy
+
+    @expenses.destroy
+
+    respond_to do |format|
+      format.html { redirect_to expenses_path, notice: 'Expense was Removed'}
     end
   end
 
@@ -45,6 +58,17 @@ class ExpensesController < ApplicationController
 	end
 
 	def set_expense_item
-		@expenses = Expense.find(params[:id])
+		# @expenses = Expense.find(params[:id], condition: {User_id: current_user.id})
+		# 	rescue_from ActiveRecord::RecordNotFound, with => :record_not_found
+		
+		# 	def record_not_found
+		# 		render 'record not found'
+		# 	end
+
+		# if @expenses.nil?
+		# 	format.html { redirect_to expenses_path, notice: "You can't edit someone else's Expense" }			
+		# else
+			@expenses = Expense.find(params[:id])
+		# end
 	end
 end

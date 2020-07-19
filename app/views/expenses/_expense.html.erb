@@ -1,0 +1,10 @@
+
+  <p>
+  	Name: <%= expense.name %> |
+	Amount: <%= expense.amount %> |
+	Date: <%= expense.createdAt %>	
+  </p>
+  	<%= link_to 'show', expense_path(expense) %>
+  	<%= link_to 'Edit', edit_expense_path(expense) %> /
+  	<%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %>
+  

@@ -1,6 +1,8 @@
 <h2>All the expenses</h2>
+
+<%= render @expenses %>
+
+
 <% @expenses.each do |expense| %>
-	<span>Name: <%= expense.name %></span>
-	<span>Amount: <%= expense.amount %></span>
-	<span>Date: <%= expense.createdAt %></span>
+
 <% end %>
