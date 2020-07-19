@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group_item, only: [:edit, :update, :destroy, :show]
-  
+
 	def index
 		@groups = current_user.groups.by_alpha_order
 	end
@@ -32,6 +32,14 @@ class GroupsController < ApplicationController
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def destroy
+  	@group.destroy
+
+    respond_to do |format|
+      format.html { redirect_to groups_path, notice: 'Group was Removed'}
     end
   end
 
