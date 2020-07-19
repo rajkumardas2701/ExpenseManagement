@@ -7,4 +7,7 @@ class User < ApplicationRecord
 	has_many :expenses, dependent: :destroy
 	
 	validates :username, presence: true, uniqueness: true
+
+	mount_uploader :userimage, GroupUploader
+	
 end

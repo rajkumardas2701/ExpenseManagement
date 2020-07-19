@@ -1,13 +1,17 @@
 <h2><%= @group.name %></h2>
 
 	
-	<%= image_tag group_img(@group.icon.url), width: '100%' %>
-	
+	<%= image_tag group_img(@group.icon.url), width: '100px', height: '100px' %>
+
 	<%= link_to 'Edit', edit_group_path(@group)%>
 	<%= link_to 'Back', expenses_path%>
 
+<h4>All your grouped Expenses:</h4>
 
-	<p>
-  	Amount: <%= @expense.amount %> |
-		Date: <%= @expense.createdAt %>		
-	</p>
+<%= render 'expenses/expense', object: @expenses %>
+
+<h4>All your ungrouped Expenses:</h4>
+
+<%= render 'expenses/extexpenses', object: @extexpenses %>
+
+
