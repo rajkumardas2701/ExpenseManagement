@@ -13,8 +13,8 @@ class ExpensesController < ApplicationController
 	end
 
 	def externalExpense
-		@extexpenses = Expense.external(ids).by_user(current_user).by_recent_created
-		@sum = Expense.total_expenses(@extexpenses)
+		@expenses = Expense.external(ids).by_user(current_user).by_recent_created
+		@sum = Expense.total_expenses(@expenses)
 	end
 
 	def create
