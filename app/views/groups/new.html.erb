@@ -1,0 +1,16 @@
+<h1>Create New Group</h1>
+
+<%= form_for(@group) do |f| %>
+	<%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :icon %>
+  <%= f.text_field :icon %>
+
+  
+  <%= f.submit 'Save Group' %>
+<% end %>
+
+
+
+<!-- Upload a group image <%= f.file_field :icon %> -->

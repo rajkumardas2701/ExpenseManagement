@@ -3,11 +3,12 @@ class ExpensesController < ApplicationController
 
 	def new
 		@expenses = Expense.new
-	end	
+	end
 
 	def index
 		@expenses = current_user.expenses.by_recent_created
 		@sum = Expense.total_expenses(@expenses)
+		@groupPics = Expense.get_pic(@expenses)
 	end
 
 	def create

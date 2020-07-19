@@ -5,5 +5,5 @@ class Group < ApplicationRecord
 	
 	validates_presence_of :name, :icon
 
-	scope :by_recent_created, -> { order("created_at desc") }
+	scope :by_alpha_order, -> { order("name asc") }
 end

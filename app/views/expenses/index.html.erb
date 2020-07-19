@@ -3,3 +3,5 @@
 <%= render @expenses %>
 
 <h4>Total Expenses: <%= number_to_currency(@sum) %></h4>
+
+<%= link_to "Create new Expense", new_expense_path %>

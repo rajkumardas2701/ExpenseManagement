@@ -1,6 +1,10 @@
 <h2>All the Groups</h2>
 <% @groups.each do |group| %>
-	<span><%= group.name %></span>
 	<span><%= group.icon %></span>
-	<span><%= group.user.username %></span>
+
+	<span><%= group.name %></span>
+	<span><%= group.created_at.to_date %></span>
 <% end %>
+
+
+<%= link_to "Create new Group", new_group_path %>
