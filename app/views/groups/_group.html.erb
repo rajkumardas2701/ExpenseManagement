@@ -1,8 +1,7 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
-   
-    <%= image_tag group_img(group.icon.url), class: "bd-placeholder-img card-img-top group-img img-size" %>
-
+    <%= image_tag group_img(group.icon.url), class: "bd-placeholder-img card-img-top group-img img-size" unless group.icon.nil? %>
+    
     <div class="card-body">
     <h5 class="card-title"><%= link_to group.name, group_path(group), class: "group-name" %></h5>
       <div class="d-flex justify-content-between align-items-center">
