@@ -98,14 +98,18 @@ html {
 	margin-bottom: 0;
 }
 
-.add-new-btn {
-	color: white;
+.add-new {
+	justify-content: center;
 	background-color: #5fb523;
 	width: 100%;
-	display: flex;
-	flex-direction: row;
+
+}
+
+.add-new-btn {
+	color: white;
+	width: 20%;
 	justify-content: center;
-	border: 4px solid white;
+	border: 2px solid white;
 }
 
 .group > .card {
