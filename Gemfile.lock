@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/rajkumardas2701/devcamp_view_tool
+  revision: ea0f24166493c0a44fa835664fdb94232944cdb7
+  specs:
+    devcamp_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -249,6 +255,7 @@ DEPENDENCIES
   byebug
   carrierwave (~> 2.1)
   carrierwave-aws (~> 1.5)
+  devcamp_view_tool!
   devise (~> 4.2)
   dotenv-rails (~> 2.7, >= 2.7.6)
   jbuilder (~> 2.7)

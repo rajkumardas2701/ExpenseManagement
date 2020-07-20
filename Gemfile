@@ -46,6 +46,7 @@ end
 gem 'rubocop', '~>0.81.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'devise', '~> 4.2'
+gem 'devcamp_view_tool', git: "https://github.com/rajkumardas2701/devcamp_view_tool"
 gem 'carrierwave', '~> 2.1'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'carrierwave-aws', '~> 1.5'

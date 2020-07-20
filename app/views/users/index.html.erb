@@ -1,9 +1,19 @@
 
+ <div class="container marketing">
+ 	<div class="row">
+ 		<div class="col-lg-12">
+ 		<%= image_tag user_img(@user.userimage.url), class: "bd-placeholder-img rounded-circle avatar-img" %>
+		<h1 class = "avatar-name">Hey! <%= @user.username %></h1>
+        <h4><%= link_to 'My Expenses', expenses_path %></h4>
+		<h4><%= link_to 'My External Expenses', extExpenses_path %></h4>
+		<h4><%= link_to 'My Groups', groups_path %></h4>
+        
+      </div>
+ 	</div>
 
+ </div>
 <%= @user.userimage %>
-<h1>Hey! <%= @user.username %></h1>
 
 
-<h4><%= link_to 'All my Expenses', expenses_path %></h4>
-<h4><%= link_to 'All my External Expenses', extExpenses_path %></h4>
-<h4><%= link_to 'All Groups', groups_path %></h4>
+
+
