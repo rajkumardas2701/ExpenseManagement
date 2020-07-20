@@ -2,7 +2,8 @@ class GroupsController < ApplicationController
   before_action :set_group_item, only: [:edit, :update, :destroy, :show]
 
 	def index
-		@groups = current_user.groups.by_alpha_order
+		@groups = current_user.groups.by_alpha_order.page(params[:page]).per(3)
+    # @groups = Group.page(params[:page]).per(3)
 	end
 
 	def new
