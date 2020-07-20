@@ -7,5 +7,7 @@
   	<%= link_to 'show', expense_path(expense) %>
   	<%= link_to 'Edit', edit_expense_path(expense) %> /
   	<%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  	<%= add_remove(object, expense) %>
   
   <% end %>

@@ -4,22 +4,24 @@ class GroupExpensesController < ApplicationController
 
 	def create
 		GroupExpense.create(Expense_id: @expense.id, Group_id: @group.id)
-		format.html { redirect_to @group, notice: "Expense #{@expense.name} was successfully added to #{@group.name}"}
+		flash[:notice] = "#{@expense.name} was successfully added to #{@group.name}"
+		redirect_to @group
 	end
 
 	def destroy
 		group_expense = GroupExpense.where(Expense_id: @expense.id, Group_id: @group.id).first
 		group_expense.destroy
-		format.html { redirect_to @group, alert: "Expense #{@expense.name} was successfully removed from #{@group.name}"}
+		flash[:alert] = "#{@expense.name} was successfully removed from #{@group.name}"
+		redirect_to @group
 	end
 
 	private
 
 	def set_group_item
-		@group = Expense.find(params[:group])
+		@group = Group.find(params[:Group_id])
 	end
 
 	def set_expense_item
-		@expense = Expense.find(params[:expense])
+		@expense = Expense.find(params[:Expense_id])
 	end
 end
