@@ -8,6 +8,6 @@ class User < ApplicationRecord
 	
 	validates :username, presence: true, uniqueness: true
 
-	mount_uploader :userimage, GroupUploader
+	mount_uploader :userimage, UserUploader
 	
 end

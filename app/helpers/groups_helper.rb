@@ -1,5 +1,5 @@
 module GroupsHelper
-	def image_generator
+	def image_generator1
 		"https://www.uffizio.com/images/product/taskeye/expense-management.svg"
 	end
 
@@ -7,7 +7,7 @@ module GroupsHelper
 		if img
 			img
 		else
-			image_generator
+			image_generator1
 		end
 	end
 

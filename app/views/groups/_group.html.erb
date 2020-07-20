@@ -1,18 +1,23 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+   
+    <%= image_tag group_img(group.icon.url), class: "bd-placeholder-img card-img-top" %>
 
-<div class="card-deck">
-	<div class="card">
- 			<%= image_tag group_img(group.icon.url), class: "card-img-top" %>	
     <div class="card-body">
-      <h5 class="card-title"><%= group.name %></h5>
-      <%= link_to 'show', group_path(group) %>
-			<%= link_to 'Edit', edit_group_path(group) %>
-			<%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-    </div>
-    <div class="card-footer">
-      <small class="text-muted"><%= group.created_at.to_date %></small>
+    <h5 class="card-title"><%= group.name %></h5>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>                  
+          <%= link_to "Edit", edit_group_path(group.id), class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+        <small class="text-muted">Created:<%= group.created_at.to_date %></small>
+      </div>
     </div>
   </div>
-
-
 </div>
+
+
+
+
+
+
