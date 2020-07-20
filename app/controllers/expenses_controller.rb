@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
 	before_action :set_expense_item, only: [:edit, :update, :destroy, :show]
 	# before_action :set_groups, only: [:new, :edit]
+  	layout "group"
 
 	def new
 		@expenses = Expense.new
