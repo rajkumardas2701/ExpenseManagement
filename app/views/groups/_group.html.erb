@@ -1,9 +1,18 @@
-<p>
-	Group Icon: <%= group.icon %>
-	Group Name: <%= group.name %>
-	Creation Date: <%= group.created_at.to_date %>
-</p>
-<%= link_to 'show', group_path(group) %>
-<%= link_to 'Edit', edit_group_path(group) %> /
-<%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
 
+<div class="card-deck">
+	<div class="card">
+ 			<%= image_tag group_img(group.icon.url), class: "card-img-top" %>	
+    <div class="card-body">
+      <h5 class="card-title"><%= group.name %></h5>
+      <%= link_to 'show', group_path(group) %>
+			<%= link_to 'Edit', edit_group_path(group) %>
+			<%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><%= group.created_at.to_date %></small>
+    </div>
+  </div>
+
+
+</div>
