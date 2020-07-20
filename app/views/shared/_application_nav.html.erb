@@ -1,13 +1,9 @@
 <header class="masthead mb-auto">
   <div class="inner">
     <h3 class="masthead-brand">Expense Management</h3>
-    <nav class="nav nav-masthead justify-content-center app-nav">      
-      <% if current_user %>      
-         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>   
-      <% else %>
-        <%= link_to 'Login', new_user_session_path %>
-        <%= link_to 'Register', new_user_registration_path %>
-      <% end %>
+    <nav class="nav nav-masthead justify-content-center app-nav">
+      <%= nav_helper 'nav-link', 'span' %>
+      <%= login_helper 'nav-link' %>
     </nav>
   </div>
 </header>
