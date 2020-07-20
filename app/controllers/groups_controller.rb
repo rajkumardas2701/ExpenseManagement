@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
 
 	def index
 		@groups = current_user.groups.by_alpha_order.page(params[:page]).per(3)
-    # @groups = Group.page(params[:page]).per(3)
 	end
 
 	def new
