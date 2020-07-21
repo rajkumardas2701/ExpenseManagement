@@ -9,7 +9,7 @@ module ApplicationHelper
     else
       (link_to 'Login', new_user_session_path, class: style) + ' '.html_safe +
         (link_to 'Register', new_user_registration_path, class: style)
-     end
+    end
   end
 
   def nav_items
@@ -35,12 +35,15 @@ module ApplicationHelper
         title: 'My Account'
       }
     ]
-end
+  end
 
   def nav_helper(style, tag_type)
     nav_links = ''
+    a_tag = ''
     nav_items.each do |item|
-      nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+      a_tag = "<a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a>"
+      nav_links << "<#{tag_type}>#{a_tag}</#{tag_type}>"
+      a_tag = ''
     end
 
     nav_links.html_safe

@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
         format.html { render :edit }
       end
     end
-   end
+  end
 
   def destroy
     @group.destroy
