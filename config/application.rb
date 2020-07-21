@@ -30,16 +30,16 @@ module ExpenseManagement
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.generators do |g|
+      g.test_framework :rspec,
+        :fixtures => false,
+        :view_specs => false,
+        :helper_specs => false,
+        :routing_specs => false,
+        :controller_specs => true,
+        :request_specs => false
+    end
     config.generators.system_tests = nil
   end
 end
 
-config.generators do |g|
-  g.test_framework :rspec,
-    :fixtures => false,
-    :view_specs => false,
-    :helper_specs => false,
-    :routing_specs => false,
-    :controller_specs => true,
-    :request_specs => false
-end

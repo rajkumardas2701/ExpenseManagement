@@ -35,6 +35,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'spring'
+  gem 'guard-rspec'
 end
 
 group :development do
@@ -47,13 +48,11 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'spring-commands-rspec'
-  gem 'guard-rspec'
 end
 
 group :test do
 	gem 'faker'
   gem 'capybara'
-  gem 'guard-rspec'
   gem 'launchy'
   gem 'shoulda-matchers'
 end

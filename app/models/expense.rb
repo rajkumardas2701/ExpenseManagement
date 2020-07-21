@@ -10,18 +10,4 @@ class Expense < ApplicationRecord
   scope :by_user, ->(user) { where(User_id: user.id) }
   scope :external, ->(ids) { where.not(id: GroupExpense.where(Expense_id: ids).pluck(:Expense_id)) }
 
-  # scope :get_pic, -> (expenses) { expenses.pluck(:icon) }
-
-  # def self.get_pic(expenses)
-  #   pic = []
-  #   expenses.each do |expense|
-  #     if !expense.groups.nil?
-  #       byebug
-  #       pics += expense.groups.pluck(:icon)
-  #     end
-  #   end
-  #   pics
-  # end
-
-  def get_expense_pic(expense); end
 end
