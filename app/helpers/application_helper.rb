@@ -13,7 +13,11 @@ module ApplicationHelper
 	end
 
 	def nav_items
-	[
+	[	
+		# {
+		# 	url: /edit,
+		# 	title: 'Profile'
+		# },
 		{
 			url: root_path,
 			title: 'Home'
