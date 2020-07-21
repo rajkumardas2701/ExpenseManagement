@@ -1,8 +1,13 @@
-<h2>All the External expenses</h2>
+<h2>My Ungrouped Expenses</h2>
 
 <h4>Total Ungrouped Expenses: <%= number_to_currency(@sum) %></h4>
-
-<%= render 'expense', object: @expenses %>
-
+	<div class="album py-5">
+    <div class="container">
+     	<div class="row">
+				<%= render 'expense', object: @expenses %>
+			</div>
+				<%= paginate @expenses %>			
+    </div>
+  </div>
 
 <%= render 'shared/new_expenses' %>
