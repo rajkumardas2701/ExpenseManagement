@@ -3,25 +3,23 @@
  	<div class="row">
  		<div class="col-lg-12">
 
+			<%= image_tag group_img(@group.icon.url), class: "bd-placeholder-img rounded-circle avatar-img" %>
 
-<%= image_tag group_img(@group.icon.url), class: "bd-placeholder-img rounded-circle avatar-img" %>
+			<h2><strong><%= @group.name %></strong></h2>
 
-<h2><strong><%= @group.name %></strong></h2>
+				<%= link_to 'Edit', edit_group_path(@group)%>
+					<%= link_to 'Back', groups_path%><hr>
 
-	<%= link_to 'Edit', edit_group_path(@group)%>
-		<%= link_to 'Back', groups_path%><hr>
+			<h4><strong>Items in this group:</strong></h4>
 
-<h4><strong>Items in this group:</strong></h4>
+			<%= render 'expenses/expense', object: @grouped %>
+			<hr>
 
-<%= render 'expenses/expense', object: @grouped %>
-<hr>
+			<h4><strong>External Expenses:</strong></h4>
 
-<h4><strong>External Expenses:</strong></h4>
+			<%= render 'expenses/expense', object: @ungrouped %>
 
-<%= render 'expenses/expense', object: @ungrouped %>
-
-
-      </div>
+    </div>
  	</div>
 
  </div>
