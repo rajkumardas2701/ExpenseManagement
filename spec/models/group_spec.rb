@@ -16,5 +16,4 @@ RSpec.describe Group, type: :model do
     it { should have_many(:expenses) }
     it { should belong_to(:user) }
   end
-
 end
