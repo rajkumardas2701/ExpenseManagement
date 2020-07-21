@@ -29,7 +29,14 @@
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
             </div>
-            <div class="col-md-10"></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="btn btn-primary">
+                  Upload your Profile picture <%= f.file_field :userimage, style: 'display:none;' %>
+                </label>
+              </div>
+            </div>
 
             <div class="col-md-2">
               <div class="form-group">
