@@ -23,4 +23,8 @@ class Expense < ApplicationRecord
 	# 	end
 	# 	pics
 	# end
+
+	def get_expense_pic(expense)
+		
+	end
 end
