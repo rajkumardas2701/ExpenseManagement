@@ -30,7 +30,7 @@ RSpec.describe GroupsController, type: :controller do
       end
     end
 
-  	context 'with valid params' do
+    context 'with valid params' do
       it 'redirects to the group show page' do
         post :create, params: { group: { name: @group.name } }
         expect(response).to redirect_to(groups_path)
@@ -62,5 +62,4 @@ RSpec.describe GroupsController, type: :controller do
       end
     end
   end
-
 end

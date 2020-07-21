@@ -9,5 +9,4 @@ class Expense < ApplicationRecord
   scope :by_recent_created, -> { order('createdAt desc') }
   scope :by_user, ->(user) { where(User_id: user.id) }
   scope :external, ->(ids) { where.not(id: GroupExpense.where(Expense_id: ids).pluck(:Expense_id)) }
-
 end

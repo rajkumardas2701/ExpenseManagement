@@ -4,7 +4,7 @@ RSpec.describe ExpensesController, type: :controller do
   before { sign_in FactoryBot.create(:user) }
   before { @expense = FactoryBot.create(:expense) }
 
-   describe 'GET #index' do
+  describe 'GET #index' do
     it 'Renders index page' do
       get :index
       expect(response).to be_successful
@@ -59,7 +59,9 @@ RSpec.describe ExpensesController, type: :controller do
 
     context 'with valid params' do
       it 'redirects to the expenses page' do
-        post :create, params: { expense: { name: @expense.name, amount: @expense.amount, createdAt: @expense.createdAt } }
+        post :create, params: { expense: { name: @expense.name,
+                                           amount: @expense.amount,
+                                           createdAt: @expense.createdAt } }
         expect(response).to have_http_status(200)
       end
     end
@@ -75,7 +77,9 @@ RSpec.describe ExpensesController, type: :controller do
 
     context 'with valid params' do
       it 'redirects to the expense show page' do
-        patch :update, params: { id: @expense.id, expense: { name: @expense.name, amount: @expense.amount, createdAt: @expense.createdAt } }
+        patch :update, params: { id: @expense.id, expense: { name: @expense.name,
+                                                             amount: @expense.amount,
+                                                             createdAt: @expense.createdAt } }
         expect(response).to have_http_status(200)
       end
     end
@@ -84,7 +88,9 @@ RSpec.describe ExpensesController, type: :controller do
   describe 'Destroy #destroy' do
     context 'with valid params' do
       it 'redirects to the expenses page' do
-        delete :destroy, params: { id: @expense.id, group: { name: @expense.name, amount: @expense.amount, createdAt: @expense.createdAt } }
+        delete :destroy, params: { id: @expense.id, group: { name: @expense.name,
+                                                             amount: @expense.amount,
+                                                             createdAt: @expense.createdAt } }
         expect(response).to redirect_to(expenses_path)
       end
     end

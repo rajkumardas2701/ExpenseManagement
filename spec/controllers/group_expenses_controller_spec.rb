@@ -5,7 +5,6 @@ RSpec.describe GroupExpensesController, type: :controller do
   before { @expense = FactoryBot.create(:expense) }
   before { @group = FactoryBot.create(:group) }
 
-
   describe 'Create #create' do
     context 'with valid params' do
       it 'redirects to the current group page' do
