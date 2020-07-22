@@ -41,6 +41,7 @@ module ExpenseManagement
     end
     config.generators.system_tests = nil
     config.assets.initialize_on_precompile = false
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
   end
 end
 
