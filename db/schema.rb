@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_154312) do
+ActiveRecord::Schema.define(version: 2020_07_24_115302) do
 
   create_table "expenses", force: :cascade do |t|
     t.text "name"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_07_18_154312) do
     t.date "createdAt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "User_id", null: false
-    t.index ["User_id"], name: "index_expenses_on_User_id"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "group_expenses", force: :cascade do |t|
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2020_07_18_154312) do
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string "name"
+    t.float "amount"
+    t.date "createdAt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.text "userimage"
@@ -55,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_154312) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "expenses", "Users"
+  add_foreign_key "expenses", "users"
   add_foreign_key "group_expenses", "Expenses"
   add_foreign_key "group_expenses", "Groups"
   add_foreign_key "groups", "users"
