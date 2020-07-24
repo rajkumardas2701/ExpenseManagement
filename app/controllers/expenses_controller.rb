@@ -19,7 +19,7 @@ class ExpensesController < ApplicationController
 
   def create
     @expenses = Expense.new(expense_params)
-    @expenses.User_id = current_user.id
+    @expenses.user_id = current_user.id
     respond_to do |format|
       if @expenses.save
         format.html { redirect_to expenses_path, notice: 'Expense was successfully added.' }
