@@ -8,8 +8,6 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses.by_recent_created.page(params[:page]).per(3)
-    # @expenses = current_user.expenses.page(params[:page]).per(3)
-
     @sum = Expense.total_expenses(@expenses)
     # @groupPics = Expense.get_pic(@expenses)
   end

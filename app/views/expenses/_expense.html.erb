@@ -3,7 +3,7 @@
   <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= link_to expense.name, expense_path(expense) %> </h5>
-        <p class="card-text">Spent <%= time_ago_in_words(expense.createdAt) %> ago</p>
+        <p class="card-text">Spent <%= time_ago_in_words(expense.created_at) %> ago</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Amount: <%= number_to_currency(expense.amount) %></li>
