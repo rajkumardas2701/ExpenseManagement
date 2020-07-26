@@ -40,3 +40,7 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+
+/config/credentials/development.key
+
+/config/credentials/production.key
