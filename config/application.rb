@@ -46,7 +46,10 @@ module ExpenseManagement
 
     def credentials
       if Rails.env.production?
-        super
+        encrypted(
+          "config/credentials.#{Rails.env}.yml.enc",
+          key_path: "config/#{Rails.env}.key"
+        )
       else
         encrypted(
           "config/credentials.#{Rails.env}.yml.enc",
