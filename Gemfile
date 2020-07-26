@@ -72,3 +72,4 @@ gem 'kaminari', '~> 0.17.0'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'rubocop', '~>0.81.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem "aws-sdk-s3", require: false
