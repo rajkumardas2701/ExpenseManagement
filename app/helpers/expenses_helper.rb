@@ -11,4 +11,15 @@ module ExpensesHelper
                 class: 'btn btn-danger btn-block'
     end
   end
+
+  def expense_img(expense)
+    # byebug
+    if expense.groups.first.nil?
+      ''
+    elsif expense.groups.first.icon.url.nil?
+      'https://cdn4.iconfinder.com/data/icons/people-std-pack/512/customers-512.png'
+    elsif expense.groups.first.icon.url
+      expense.groups.first.icon.url
+    end
+  end
 end
