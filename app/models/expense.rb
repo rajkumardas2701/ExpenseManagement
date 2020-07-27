@@ -8,5 +8,5 @@ class Expense < ApplicationRecord
   scope :total_expenses, ->(expenses) { expenses.pluck(:amount).sum }
   scope :by_recent_created, -> { order('created_at desc') }
   scope :by_user, ->(user) { where(user_id: user.id) }
-  scope :external, ->(ids) { where.not(id: GroupExpense.where(expense_id: ids).pluck(:expense_id)) }
+  scope :external, ->(user) { where.not(id: GroupExpense.where(expense_id: user.expenses.pluck(:id)).pluck(:expense_id)) }
 end

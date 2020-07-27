@@ -63,14 +63,14 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'aws-sdk-s3'
 gem 'carrierwave', '~> 2.1'
 gem 'carrierwave-aws', '~> 1.5'
 gem 'devcamp_view_tool', git: 'https://github.com/rajkumardas2701/devcamp_view_tool'
 gem 'devise', '~> 4.2'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'figaro'
 gem 'kaminari', '~> 0.17.0'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'rubocop', '~>0.81.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'aws-sdk-s3'
-gem 'figaro'
