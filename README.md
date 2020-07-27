@@ -19,7 +19,7 @@ Created with Ruby on Rails.
 
 ## Live Demo
 
-- [Live Demo Link](hhttps://pacific-ridge-74357.herokuapp.com/)
+- [Live Demo Link](https://pacific-ridge-74357.herokuapp.com/)
 - [Presentation](https://www.loom.com/share/0cadadf278304ab79e903e21a04c21ae)
 
 ## Getting Started
