@@ -32,7 +32,7 @@ feature 'create a group' do
     end
 
     scenario "renders name can't be black error" do
-      expect(page).to have_content "Create New Group"
+      expect(page).to have_content 'Create New Group'
     end
   end
 end

@@ -9,7 +9,7 @@ feature 'create a expense with a group' do
   end
 
   scenario 'is on the root page' do
-    expect(page).to have_content "Groups"
+    expect(page).to have_content 'Groups'
   end
 
   feature 'add expense to group' do
