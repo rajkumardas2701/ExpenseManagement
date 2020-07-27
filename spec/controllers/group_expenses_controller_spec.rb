@@ -8,7 +8,7 @@ RSpec.describe GroupExpensesController, type: :controller do
   describe 'Create #create' do
     context 'with valid params' do
       it 'redirects to the current group page' do
-        post :create, params: { Expense_id: @expense.id, Group_id: @group.id }
+        post :create, params: { expense_id: @expense.id, group_id: @group.id }
         expect(response).to redirect_to(@group)
       end
     end
