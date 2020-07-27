@@ -8,18 +8,17 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses.by_recent_created.page(params[:page]).per(3)
-    @sum = Expense.total_expenses(@expenses)
-    # @groupPics = Expense.get_pic(@expenses)
+    @sum = Expense.total_expenses(current_user.expenses)
   end
 
   def external_expense
-    @expenses = Expense.external(ids).by_user(current_user).by_recent_created.page(params[:page]).per(3)
-    @sum = Expense.total_expenses(@expenses)
+    @expenses = Expense.external(current_user).by_user(current_user).by_recent_created.page(params[:page]).per(3)
+    @sum = Expense.total_expenses(Expense.external(current_user).by_user(current_user))
   end
 
   def create
     @expenses = Expense.new(expense_params)
-    @expenses.User_id = current_user.id
+    @expenses.user_id = current_user.id
     respond_to do |format|
       if @expenses.save
         format.html { redirect_to expenses_path, notice: 'Expense was successfully added.' }
@@ -63,25 +62,6 @@ class ExpensesController < ApplicationController
   end
 
   def set_expense_item
-    # @expenses = Expense.find(params[:id], condition: {User_id: current_user.id})
-    #   rescue_from ActiveRecord::RecordNotFound, with => :record_not_found
-
-    #   def record_not_found
-    #     render 'record not found'
-    #   end
-
-    # if @expenses.nil?
-    #   format.html { redirect_to expenses_path, notice: "You can't edit someone else's Expense" }
-    # else
     @expenses = Expense.find(params[:id])
-    # end
-  end
-
-  # def set_groups
-  #   @groups = current_user.groups
-  # end
-
-  def ids
-    ids = current_user.expenses.pluck(:id)
   end
 end

@@ -13,6 +13,7 @@ require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
+require "dotenv-rails"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -42,6 +43,19 @@ module ExpenseManagement
     config.generators.system_tests = nil
     config.assets.initialize_on_precompile = false
     config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+    def credentials
+      if Rails.env.production?
+        encrypted(
+          "config/credentials.#{Rails.env}.yml.enc",
+          key_path: "config/#{Rails.env}.key"
+        )
+      else
+        encrypted(
+          "config/credentials.#{Rails.env}.yml.enc",
+          key_path: "config/#{Rails.env}.key"
+        )
+      end
+    end
   end
 end
-

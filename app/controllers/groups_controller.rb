@@ -45,8 +45,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @grouped = @group.expenses.order('createdAt desc')
-    @ungrouped = Expense.external(ids).by_user(current_user).by_recent_created
+    @grouped = @group.expenses.order('expenses.created_at desc').page(params[:page]).per(3)
+    @ungrouped = Expense.external(current_user).by_user(current_user).by_recent_created.page(params[:page]).per(3)
   end
 
   private
@@ -57,9 +57,5 @@ class GroupsController < ApplicationController
 
   def set_group_item
     @group = Group.find(params[:id])
-  end
-
-  def ids
-    ids = current_user.expenses.pluck(:id)
   end
 end
