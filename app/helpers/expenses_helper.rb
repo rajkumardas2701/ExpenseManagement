@@ -13,7 +13,6 @@ module ExpensesHelper
   end
 
   def expense_img(expense)
-    # byebug
     if expense.groups.first.nil?
       ''
     elsif expense.groups.first.icon.url.nil?

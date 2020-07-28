@@ -6,4 +6,8 @@ module GroupsHelper
   def group_img(img)
     img || image_generator1
   end
+
+  def group_expense(group)
+    group.expenses.pluck(:amount).sum
+  end
 end
