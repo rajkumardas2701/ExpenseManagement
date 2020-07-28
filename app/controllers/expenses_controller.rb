@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense_item, only: %i[edit update destroy show]
+  before_action :set_group_item, only: %i[new edit]
   layout 'group'
 
   def new
@@ -17,14 +18,29 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @expenses = Expense.new(expense_params)
-    @expenses.user_id = current_user.id
-    respond_to do |format|
-      if @expenses.save
-        format.html { redirect_to expenses_path, notice: 'Expense was successfully added.' }
-      else
-        format.html { render :new }
+    if expense_params[:group_ids].nil?
+      @expense = current_user.expenses.build(expense_params)
+      @expense.user_id = current_user.id
+      respond_to do |format|
+        if @expense.save
+          format.html { redirect_to expenses_path, notice: 'Expense was successfully added.' }
+        else
+          format.html { render :new }
+        end
       end
+    elsif !expense_params[:group_ids].nil?
+      @expense = current_user.expenses.build(expense_params.except(:group_ids))
+      @expense.user_id = current_user.id
+      respond_to do |format|
+        if @expense.save
+          format.html { redirect_to expenses_path, notice: 'Expense was successfully added.' }
+        else
+          format.html { render :new }
+        end
+      end
+      @groups = Group.where(expense_params[:group_ids])
+      ex = Expense.new
+      ex.add_expense_to_group(@groups, @expense)
     end
   end
 
@@ -57,11 +73,16 @@ class ExpensesController < ApplicationController
   def expense_params
     params.require(:expense).permit(:name,
                                     :amount,
-                                    :createdAt,
-                                    :User_id)
+                                    :user_id,
+                                    group_ids: []
+                                    )
   end
 
   def set_expense_item
     @expenses = Expense.find(params[:id])
+  end
+
+  def set_group_item
+    @groups = current_user.groups
   end
 end

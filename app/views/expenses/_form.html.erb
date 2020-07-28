@@ -15,10 +15,10 @@
 					<%= f.number_field :amount, class: "form-control"  %>
         </div>
 
-        <div class="form-group">
-					<%= f.label :createdAt %>          
-					<%= f.text_field :createdAt, placeholder: 'YYYY-MM-DD', class: "form-control"  %>
-        </div>
+        <%= f.collection_check_boxes(:group_ids, @groups, :id, :name, include_hidden: false) do |b| %>
+            <%= b.check_box %>
+            <%= b.label %>
+        <% end %>
 
         <div class="form-group">
           <%= f.submit "Save Expense", class: "btn btn-success" %>
