@@ -74,8 +74,7 @@ class ExpensesController < ApplicationController
     params.require(:expense).permit(:name,
                                     :amount,
                                     :user_id,
-                                    group_ids: []
-                                    )
+                                    group_ids: [])
   end
 
   def set_expense_item

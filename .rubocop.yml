@@ -8,14 +8,15 @@ AllCops:
     - "node_modules/**/*"
 
   DisplayCopNames: true
-
+PerceivedComplexity:
+  Max: 8
 Layout/LineLength:
   Max: 125
 Metrics/MethodLength:
   Include:
     - "app/controllers/*"
     - "app/models/*"
-  Max: 20
+  Max: 25
 Metrics/AbcSize:
   Include:
     - "app/controllers/*"

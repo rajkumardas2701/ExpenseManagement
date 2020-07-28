@@ -10,7 +10,7 @@ class Expense < ApplicationRecord
   scope :by_recent_created, -> { order('created_at desc') }
   scope :by_user, ->(user) { where(user_id: user.id) }
   scope :external, ->(user) { where.not(id: GroupExpense.where(expense_id: user.expenses.pluck(:id)).pluck(:expense_id)) }
-  
+
   def add_expense_to_group(groups, expense)
     exp_groups = groups.pluck(:id)
     exp_groups.each do |group|
