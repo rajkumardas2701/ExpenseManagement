@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    if expense_params[:group_ids].nil?
+    if params_check
       @expense = current_user.expenses.build(expense_params)
       @expense.user_id = current_user.id
       respond_to do |format|
@@ -28,8 +28,8 @@ class ExpensesController < ApplicationController
           format.html { render :new }
         end
       end
-    elsif !expense_params[:group_ids].nil?
-      @expense = current_user.expenses.build(expense_params.except(:group_ids))
+    elsif !params_check
+      @expense = current_user.expenses.build(params_exempt)
       @expense.user_id = current_user.id
       respond_to do |format|
         if @expense.save
@@ -38,7 +38,7 @@ class ExpensesController < ApplicationController
           format.html { render :new }
         end
       end
-      @groups = Group.where(id: expense_params[:group_ids])
+      @groups = Group.where(id: params_groups)
       ex = Expense.new
       ex.add_expense_to_group(@groups, @expense)
     end
@@ -85,5 +85,17 @@ class ExpensesController < ApplicationController
 
   def set_group_item
     @groups = current_user.groups
+  end
+
+  def params_check
+    expense_params[:group_ids].nil?
+  end
+
+  def params_exempt
+    expense_params.except(:group_ids)
+  end
+
+  def params_groups
+    expense_params[:group_ids]
   end
 end
