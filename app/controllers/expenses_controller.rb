@@ -61,10 +61,12 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @expenses.destroy
-
     respond_to do |format|
-      format.html { redirect_to expenses_path, notice: 'Expense was Removed' }
+      if @expenses.destroy
+        format.html { redirect_to expenses_path, notice: 'Expense was Removed' }
+      else
+        format.html { render expenses_path }
+      end
     end
   end
 

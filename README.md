@@ -35,6 +35,9 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone this repo to your computer using <code>git clone</code> and the web url
 2. Open your terminal and <code>cd</code> into the project root directory
+3. As Heroku removes images approx. after an hour from your app, I'm using AWS S3 to store my images.
+    When you clone this project, you need to ensure you have access to AWS console and S3 bucket, region, secret key and access key is set in your .env file locally.
+    Please refer, https://medium.com/alturasoluciones/setting-up-rails-5-active-storage-with-amazon-s3-3d158cf021ff
 
 ### Install
 
@@ -77,6 +80,7 @@ Give a ⭐️ if you like this project!
 
 - Thanks to [Gregoire Vella](https://www.behance.net/gregoirevellaDesign) for the design idea
 - Thanks to Microverse Team 104-the-fornax for sharing learnings around Rails Association.
+
 ## 📝 License
 
 This project is [MIT](lic.url) licensed.
