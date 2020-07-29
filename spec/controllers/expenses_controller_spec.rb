@@ -60,9 +60,8 @@ RSpec.describe ExpensesController, type: :controller do
     context 'with valid params' do
       it 'redirects to the expenses page' do
         post :create, params: { expense: { name: @expense.name,
-                                           amount: @expense.amount,
-                                           createdAt: @expense.createdAt } }
-        expect(response).to have_http_status(200)
+                                           amount: @expense.amount } }
+        expect(response).to have_http_status(302)
       end
     end
   end
@@ -78,9 +77,8 @@ RSpec.describe ExpensesController, type: :controller do
     context 'with valid params' do
       it 'redirects to the expense show page' do
         patch :update, params: { id: @expense.id, expense: { name: @expense.name,
-                                                             amount: @expense.amount,
-                                                             createdAt: @expense.createdAt } }
-        expect(response).to have_http_status(200)
+                                                             amount: @expense.amount } }
+        expect(response).to have_http_status(302)
       end
     end
   end
