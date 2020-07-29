@@ -14,7 +14,7 @@ class Expense < ApplicationRecord
   def add_expense_to_group(groups, expense)
     exp_groups = groups.pluck(:id)
     exp_groups.each do |group|
-      GroupExpense.create!(Expense_id: expense.id, Group_id: group)
+      GroupExpense.create!(expense_id: expense.id, group_id: group)
     end
   end
 end
