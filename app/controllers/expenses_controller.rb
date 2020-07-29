@@ -38,7 +38,7 @@ class ExpensesController < ApplicationController
           format.html { render :new }
         end
       end
-      @groups = Group.where(expense_params[:group_ids])
+      @groups = Group.where(id: expense_params[:group_ids])
       ex = Expense.new
       ex.add_expense_to_group(@groups, @expense)
     end
