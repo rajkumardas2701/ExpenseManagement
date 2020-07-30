@@ -6,7 +6,7 @@ ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -31,6 +31,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'guard-rspec'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'spring'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -38,10 +44,35 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'faker'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+end
+
+group :production do
+  gem 'pg'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'aws-sdk-s3'
+gem 'carrierwave', '~> 2.1'
+gem 'carrierwave-aws', '~> 1.5'
+gem 'devcamp_view_tool', git: 'https://github.com/rajkumardas2701/devcamp_view_tool'
+gem 'devise', '~> 4.2'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'figaro'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'kaminari', '~> 0.17.0'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'rubocop', '~>0.81.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
