@@ -21,4 +21,12 @@ module ExpensesHelper
       expense.groups.first.icon.url
     end
   end
+
+  def add_exp_img(expense)
+    if expense.groups.first.nil?
+      ''
+    else
+      image_tag expense_img(expense), class: 'exp-img'
+    end
+  end
 end

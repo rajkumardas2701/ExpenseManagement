@@ -10,4 +10,12 @@ module GroupsHelper
   def group_expense(group)
     group.expenses.pluck(:amount).sum
   end
+
+  def add_group_img(group)
+    if group.icon.nil?
+      ''
+    else
+      image_tag group_img(group.icon.url), class: "bd-placeholder-img card-img-top group-img img-size"
+    end
+  end
 end
