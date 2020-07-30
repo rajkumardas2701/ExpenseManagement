@@ -7,31 +7,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
-
-
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      
-
+  <body>
+  
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
       <%= render 'shared/application_nav' %>
-      <%= render 'shared/alerts' %> 
+      <div class="text-center">
+        <%= render 'shared/alerts' %> 
+        <%= yield %>
+      </div>
 
-      <%= yield %>
 
       <%= render 'shared/application_footer' %>
-
-
+      
     </div>
   </body>
 </html>
