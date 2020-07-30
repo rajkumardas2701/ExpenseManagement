@@ -11,7 +11,7 @@ html {
 }
 
 .container {
-  max-width: 60%;
+  max-width: 90%;
 }
 
 .pricing-header {
@@ -23,7 +23,7 @@ html {
 }
 
 .cover-container {
-  max-width: 60em;
+  max-width: 65em;
 }
 
 .nav-width {
@@ -107,7 +107,7 @@ html {
 
 .add-new-btn {
   color: white;
-  width: 20%;
+  width: 30%;
   justify-content: center;
   border: 2px solid white;
 }
@@ -125,7 +125,7 @@ html {
 }
 
 .nav-total {
-  width: 60%;
+  width: 90%;
   margin: auto;
 }
 
@@ -145,4 +145,9 @@ html {
 .exp-img {
   width: 30px;
   height: 30px;
+}
+
+.navbar-dark .navbar-toggler {
+  color: white;
+  border-color: whitesmoke;
 }
