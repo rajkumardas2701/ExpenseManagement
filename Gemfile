@@ -70,6 +70,8 @@ gem 'devcamp_view_tool', git: 'https://github.com/rajkumardas2701/devcamp_view_t
 gem 'devise', '~> 4.2'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'figaro'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'kaminari', '~> 0.17.0'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'rubocop', '~>0.81.0'
