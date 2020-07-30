@@ -1,14 +1,14 @@
 # Expense Management - Ruby on Rails Capstone Project
 
-> Track and group your expenses
+> Track and Group your Expenses
 
-![screenshot](app/assets/images/homepage.png)
+![screenshot](app/assets/images/Login.png)
+![screenshot](app/assets/images/Home.png)
+![screenshot](app/assets/images/MoreOptions.png)
 ![screenshot](app/assets/images/Expenses.png)
-![screenshot](app/assets/images/ExtExpenses.png)
 ![screenshot](app/assets/images/Groups.png)
-![screenshot](app/assets/images/AddRemoveExp.png)
 
-Created with Ruby on Rails.
+Created with Ruby on Rails which helps you manage your Expenses and store Group images in AWS in Production Environment.
 
 ## Built With
 
@@ -35,9 +35,6 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone this repo to your computer using <code>git clone</code> and the web url
 2. Open your terminal and <code>cd</code> into the project root directory
-3. As Heroku removes images approx. after an hour from your app, I'm using AWS S3 to store my images.
-    When you clone this project, you need to ensure you have access to AWS console and S3 bucket, region, secret key and access key is set in your .env file locally.
-    Please refer, https://medium.com/alturasoluciones/setting-up-rails-5-active-storage-with-amazon-s3-3d158cf021ff
 
 ### Install
 
