@@ -14,7 +14,7 @@ module ExpensesHelper
 
   def expense_img(expense)
     if expense.groups.first.nil?
-      return
+      nil
     elsif expense.groups.first.icon.url.nil?
       'https://cdn4.iconfinder.com/data/icons/people-std-pack/512/customers-512.png'
     elsif expense.groups.first.icon.url
