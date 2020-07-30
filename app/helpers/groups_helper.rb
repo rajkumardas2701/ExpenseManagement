@@ -15,7 +15,7 @@ module GroupsHelper
     if group.icon.nil?
       ''
     else
-      image_tag group_img(group.icon.url), class: "bd-placeholder-img card-img-top group-img img-size"
+      image_tag group_img(group.icon.url), class: 'bd-placeholder-img card-img-top group-img img-size'
     end
   end
 end
