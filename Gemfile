@@ -72,7 +72,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'figaro'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'rubocop', '~>0.81.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
